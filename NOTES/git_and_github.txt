@@ -1,0 +1,26 @@
+1) What is Git? 
+
+: Free and Open Source Version Control System
+
+2) What is Version Control?
+
+: The management of changes to documents, computer programs, large websites, and other
+collections of information.
+
+# TERMS
+
+- Directory -> Folder
+- Terminal or Command Line -> Interface for Text Commands 
+- CLI -> Command Line Interface
+- cd -> Change Directory 
+- Code Editor -> Word Processor for Writing Code 
+- Repository -> Project, or the folder/place where your project is kept
+- GitHub -> A website to host your repositories online
+
+# Git Commands
+
+- clone -> Bring a repository that is hosted somewhere like Github into a folder on your local machine
+- Add -> Track your files and changes in Git
+- commit -> Save your files in Git
+- push -> Upload git commits to remote repos, like Github
+- pull -> Download changes from remote repo to your local machine, the opposite of push
