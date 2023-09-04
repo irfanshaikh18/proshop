@@ -17,7 +17,7 @@ collections of information.
 - Repository -> Project, or the folder/place where your project is kept
 - GitHub -> A website to host your repositories online
 
-# Git Commands
+# GIT COMMANDS
 
 - clone -> Bring a repository that is hosted somewhere like Github into a folder on your local machine
 - Add -> Track your files and changes in Git
