@@ -1,7 +1,8 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
-import { FaShoppingCart, FaUser } from 'react-icons/fa'
+import { FaHeart, FaUser, FaBell } from 'react-icons/fa'
 import { LinkContainer } from 'react-router-bootstrap'
-import logo from '../assets/logo.png'
+
+import SearchBox from './SearchBox'
 
 function Header() {
   return (
@@ -9,17 +10,21 @@ function Header() {
       <Navbar bg="primary" data-bs-theme="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="">
-            <Navbar.Brand>
-              <img src={logo} alt="Pro Shop Logo" />
-              ProShop
-            </Navbar.Brand>
+            <Navbar.Brand>CarRental</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <LinkContainer to="/cart">
+              <SearchBox />
+              <LinkContainer to="/wishlist">
                 <Nav.Link>
-                  <FaShoppingCart /> Cart
+                  <FaHeart /> Wishlist
+                </Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="/notifications">
+                <Nav.Link>
+                  <FaBell /> notifications
                 </Nav.Link>
               </LinkContainer>
 

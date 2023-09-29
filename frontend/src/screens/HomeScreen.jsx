@@ -1,12 +1,13 @@
 import { Row, Col } from 'react-bootstrap'
 
 import Product from '../components/Product'
-import { useGetProductsQuery } from '../slices/productsApiSlice'
+import { useGetCarsQuery } from '../slices/carsApiSlice'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import FilterSidebar from '../components/FilterSidebar'
 
 function HomeScreen() {
-  const { data: products, isLoading, error } = useGetProductsQuery()
+  const { data: products, isLoading, error } = useGetCarsQuery()
 
   return (
     <>
@@ -18,13 +19,20 @@ function HomeScreen() {
         </Message>
       ) : (
         <>
-          <h1>Latest Products</h1>
+          <h1 className="mb-3">Latest Cars</h1>
           <Row>
-            {products.map((product) => (
-              <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
-                <Product product={product} />
-              </Col>
-            ))}
+            <Col md={2}>
+              <FilterSidebar />
+            </Col>
+            <Col md={10}>
+              <Row>
+                {products.map((product) => (
+                  <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                    <Product product={product} />
+                  </Col>
+                ))}
+              </Row>
+            </Col>
           </Row>
         </>
       )}

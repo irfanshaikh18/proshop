@@ -7,8 +7,9 @@ function Footer() {
     <footer>
       <Container>
         <Row>
+          <hr />
           <Col className="text-center py-3">
-            <p>ProShop &copy; {currentYear}</p>
+            <h5>&copy; {currentYear} CarRental. All rights reserved</h5>
           </Col>
         </Row>
       </Container>

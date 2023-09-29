@@ -2,9 +2,9 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 
 import users from '../data/users.js'
-import products from '../data/products.js'
+import cars from '../data/cars.js'
 import User from '../models/userModel.js'
-import Product from '../models/productModel.js'
+import Car from '../models/carModel.js'
 import Order from '../models/orderModel.js'
 import connectDB from './db.js'
 
@@ -15,18 +15,18 @@ connectDB()
 const importData = async () => {
   try {
     await Order.deleteMany()
-    await Product.deleteMany()
+    await Car.deleteMany()
     await User.deleteMany()
 
     const createdUsers = await User.insertMany(users)
 
     const adminUser = createdUsers[0]._id
 
-    const sampleProducts = products.map((product) => {
-      return { ...product, user: adminUser }
+    const sampleCars = cars.map((car) => {
+      return { ...car, user: adminUser }
     })
 
-    await Product.insertMany(sampleProducts)
+    await Car.insertMany(sampleCars)
     console.log('Data Imported!'.green.inverse)
     process.exit()
   } catch (error) {
@@ -38,7 +38,7 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     await Order.deleteMany()
-    await Product.deleteMany()
+    await Car.deleteMany()
     await User.deleteMany()
 
     console.log('Data Destroyed!'.red.inverse)

@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 
 import Rating from '../components/Rating'
-import { useGetProductDetailsQuery } from '../slices/productsApiSlice'
+import { useGetCarDetailsQuery } from '../slices/carsApiSlice'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
 function ProductScreen() {
-  const { id: productId } = useParams()
+  const { id: carId } = useParams()
   const {
     data: product,
     isLoading,
     error
-  } = useGetProductDetailsQuery(productId)
+  } = useGetCarDetailsQuery(carId)
 
   return (
     <>
@@ -77,7 +77,7 @@ function ProductScreen() {
                     type="button"
                     disabled={product.countInStock === 0}
                   >
-                    Add to Cart
+                    Rent Now
                   </Button>
                 </ListGroup.Item>
               </ListGroup>
