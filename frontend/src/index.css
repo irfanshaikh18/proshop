@@ -51,3 +51,13 @@ table th {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.footer {
+  color: rgb(76, 76, 255);
+  background-color: aliceblue;
+}
+
+.strike-price {
+  text-decoration: line-through
+}
+
