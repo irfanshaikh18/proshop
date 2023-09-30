@@ -4,12 +4,11 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer>
+    <footer className="footer">
       <Container>
         <Row>
-          <hr />
           <Col className="text-center py-3">
-            <h5>&copy; {currentYear} CarRental. All rights reserved</h5>
+            <h6>&copy; {currentYear} CarRental. All rights reserved</h6>
           </Col>
         </Row>
       </Container>
