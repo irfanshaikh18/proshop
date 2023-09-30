@@ -9,11 +9,7 @@ import Message from '../components/Message'
 
 function ProductScreen() {
   const { id: carId } = useParams()
-  const {
-    data: product,
-    isLoading,
-    error
-  } = useGetCarDetailsQuery(carId)
+  const { data: product, isLoading, error } = useGetCarDetailsQuery(carId)
 
   return (
     <>
@@ -43,9 +39,20 @@ function ProductScreen() {
                   text={`${product.numReviews} reviews`}
                 />
               </ListGroup.Item>
-              <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
               <ListGroup.Item>
                 Description: {product.description}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col md={6}>TypeCar: {product.typeCar}</Col>
+                  <Col md={6}>Capacity: {product.capacity}</Col>
+                </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col md={6}>Steering: {product.steering}</Col>
+                  <Col md={6}>Gasoline: {product.gasoline}</Col>
+                </Row>
               </ListGroup.Item>
             </ListGroup>
           </Col>
@@ -57,26 +64,21 @@ function ProductScreen() {
                   <Row>
                     <Col>Price: </Col>
                     <Col>
-                      <strong>${product.price}</strong>
+                      {product.discountedPrice === 0 ? (
+                        <div>
+                          <strong>$ {product.price} / </strong> day
+                        </div>
+                      ) : (
+                        <div>
+                          <strong>$ {product.discountedPrice} / </strong> day
+                          <div className="strike-price">$ {product.price}</div>
+                        </div>
+                      )}
                     </Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <Row>
-                    <Col>Status: </Col>
-                    <Col>
-                      <strong>
-                        {product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}
-                      </strong>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <Button
-                    className="btn-block"
-                    type="button"
-                    disabled={product.countInStock === 0}
-                  >
+                  <Button className="btn-block" type="button">
                     Rent Now
                   </Button>
                 </ListGroup.Item>
